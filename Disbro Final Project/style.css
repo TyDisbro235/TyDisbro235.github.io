@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  background-color: #004990;
+  color: white;
+  text-decoration: underline;
+  padding: 20px;
+}
+
+nav {
+  text-align: center;
+}
