@@ -1,57 +1,59 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ── BASE (mobile-first default: 400–767px) ── */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #b3e5fc;   /* sky blue */
+  color: #0d47a1;
+  padding: 1rem;
 }
 
-h1 {
-  text-align: center;
-  background-color: #004990;
-  color: white;
-  text-decoration: underline;
-  padding: 20px;
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-nav {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 700;
-  background-color: green;
-  text-decoration: underline wavy black;
-  border-radius: 15px;
-  padding: 20px;
+/* ── Small Mobile: < 400px ── */
+@media (max-width: 399px) {
+  body {
+    font-family: 'Courier New', monospace;
+    background-color: #ffccbc;  /* coral */
+    color: #bf360c;
+  }
 }
 
-footer {
-  text-align: center;
-  background-color: cyan;
-  border: 1px solid black;
+/* ── Tablet: 768–1023px ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-family: 'Trebuchet MS', 'Lucida Sans', sans-serif;
+    background-color: #c8e6c9;  /* mint green */
+    color: #1b5e20;
+  }
+  main {
+    flex-direction: row;
+  }
 }
 
-img {
-  border: 1px solid black;
-  text-decoration: none;
-  border-radius: 15px;
-  display: block;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+/* ── Desktop: 1024–1399px ── */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  body {
+    font-family: 'Palatino Linotype', Palatino, serif;
+    background-color: #e1bee7;  /* lavender */
+    color: #4a148c;
+  }
+  main {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
 }
 
-figcaption {
-  text-align: center;
-  font-size: 15px;
-  margin-top: 10px;
-}
-
-article {
-  margin: 20px;
-  background-color: black;
-  color: white;
-  border: 2px green solid;
-  border-radius: 10px;
-  padding: 20px;
-
+/* ── Large Desktop: 1400px+ ── */
+@media (min-width: 1400px) {
+  body {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    background-color: #fff9c4;  /* gold */
+    color: #e65100;
+    letter-spacing: 0.02em;
+  }
 }
 
 
