@@ -26,6 +26,51 @@
         padding: 20px;
         margin: 20px;
       }
+
+      #js-section {
+        border: 3px solid #ce93d8;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px;
+      }
+
+      #quote-box {
+        background-color: #0f3460;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 15px 0;
+        font-style: italic;
+        min-height: 60px;
+        line-height: 1.6;
+      }
+
+      #quote-author {
+        text-align: right;
+        color: #ce93d8;
+        margin-top: 8px;
+        font-style: normal;
+        font-size: 0.9em;
+      }
+
+      #quote-btn {
+        background-color: transparent;
+        border: 2px solid #ce93d8;
+        color: #ce93d8;
+        padding: 8px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+      }
+
+      #quote-btn:hover {
+        background-color: #ce93d820;
+      }
+
+      #click-count {
+        margin-top: 8px;
+        font-size: 0.85em;
+        color: #aaa;
+      }
     </style>
   </head>
   <body>
@@ -44,8 +89,8 @@
         </p>
         <p>
           <a href="https://TyDisbro235.github.io/foodpyramid.html"
-            >Ch5 Project
-          </a>
+            >Ch5 Project</a
+          >
         </p>
       </div>
 
@@ -58,7 +103,85 @@
         </p>
         <p><a href="https://TyDisbro235.github.io/index.html">Index</a></p>
       </div>
+
+      <!--
+        JavaScript Feature: Random Programming Quote Generator
+        Source: Written from scratch for this page.
+        Functions:
+          - showQuote(): Picks a random quote from the quotes array (avoiding
+            repeats back-to-back), displays the quote text and author in the
+            #quote-box div, and increments a counter showing how many quotes
+            have been generated this session.
+      -->
+      <div id="js-section">
+        <h2>Quote of the Moment</h2>
+        <div id="quote-box">
+          <span id="quote-text"
+            >Click the button to get a programming quote!</span
+          >
+          <div id="quote-author"></div>
+        </div>
+        <button id="quote-btn" onclick="showQuote()">New Quote</button>
+        <div id="click-count">Quotes generated: 0</div>
+      </div>
     </main>
     <footer>Footer area</footer>
+
+    <script>
+      const quotes = [
+        {
+          text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+          author: "Martin Fowler",
+        },
+        {
+          text: "First, solve the problem. Then, write the code.",
+          author: "John Johnson",
+        },
+        {
+          text: "Java is to JavaScript what car is to Carpet.",
+          author: "Chris Heilmann",
+        },
+        {
+          text: "The best error message is the one that never shows up.",
+          author: "Thomas Fuchs",
+        },
+        {
+          text: "Code is like humor. When you have to explain it, it's bad.",
+          author: "Cory House",
+        },
+        {
+          text: "Make it work, make it right, make it fast.",
+          author: "Kent Beck",
+        },
+        {
+          text: "Simplicity is the soul of efficiency.",
+          author: "Austin Freeman",
+        },
+        {
+          text: "Before software can be reusable it first has to be usable.",
+          author: "Ralph Johnson",
+        },
+      ];
+
+      let count = 0;
+      let lastIndex = -1;
+
+      function showQuote() {
+        let idx;
+        do {
+          idx = Math.floor(Math.random() * quotes.length);
+        } while (idx === lastIndex);
+
+        lastIndex = idx;
+        count++;
+
+        document.getElementById("quote-text").textContent =
+          '"' + quotes[idx].text + '"';
+        document.getElementById("quote-author").textContent =
+          "— " + quotes[idx].author;
+        document.getElementById("click-count").textContent =
+          "Quotes generated: " + count;
+      }
+    </script>
   </body>
 </html>
